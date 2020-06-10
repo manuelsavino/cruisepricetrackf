@@ -1,9 +1,13 @@
 import React from "react";
+import app from "../config/firebase";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div>
-      <h1>This is home</h1>
-    </div>
+    <>
+      <h1>Home</h1>
+      <button onClick={() => app.auth().signOut()}>Sign out</button>
+    </>
   );
-}
+};
+
+export default Home;

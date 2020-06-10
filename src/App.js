@@ -1,18 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./Pages/Home";
-import NewItin from "./Pages/NewItin";
+import Login from "./Pages/Login";
+import Signup from "./Pages/SignUp";
+import { AuthProvider } from "./Auth/Auth";
+import PrivateRoute from "./Auth/PrivateRoute";
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/newitin" component={NewItin} />
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
-
-export default App;
