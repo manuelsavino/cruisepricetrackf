@@ -9,16 +9,12 @@ exports.handler = async (event, context) => {
     console.log(err);
     return {
       statusCode: err.statusCode || 500,
-      body: JSON.stringify({
-        error: err.message,
-      }),
+      body: response,
     };
   }
   console.log(response);
   return {
     statusCode: 200,
-    body: JSON.stringify({
-      data: response,
-    }),
+    body: response,
   };
 };
